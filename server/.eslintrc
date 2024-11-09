@@ -1,0 +1,10 @@
+{
+    "env": {
+      "mocha": true
+    },
+    "rules": {
+      "jest/valid-expect": "off",
+      "no-unused-expressions": "off"
+    }
+  }
+  
