@@ -35,7 +35,7 @@ router.post('/login',(req,res,next) => {
                     compare(req.body.password,result.rows[0].password,(error,match) => {
                       if (error) return next(error)
                       if (!match) return next(new Error(invalid_message))
-                      const token = sign({user: req.body.email},process.env.JWT_SECERT_KEY)
+                      const token = sign({user: req.body.email},process.env.JWT_SECRET_KEY)
                       const user = result.rows[0]
                       return res.status(200).json(
                         {

@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { UserContext } from "./UserContext";
 import axios from "axios";
+import React from "react";
 
 const url = process.env.REACT_APP_API_URL
 
 export default function UserProvider({children}) {
   const userFromSessionStorage = sessionStorage.getItem('user')
-  const [user, setUser] = useState(userFromSessionStorage ? JsoN.parse(userFromSessionStorage): {email: '',password: ''})
+  const [user, setUser] = useState(userFromSessionStorage ? JSON.parse(userFromSessionStorage): {email: '',password: ''})
   
   const signUp=async() => {
     const json = JSON.stringify(user)
@@ -14,8 +15,8 @@ export default function UserProvider({children}) {
     try {
       await axios.post(url + '/user/register',json,headers)
       setUser({email: '',password: ''})
-    }catch(error){
-     throw error
+    } catch(error){
+      throw error
     }
   }
 

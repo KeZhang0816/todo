@@ -33,12 +33,14 @@ export default function Authentication({authenticationMode}) {
             <h3>{authenticationMode === AuthenticationMode.Login ? 'Sign in' : 'Sign up'}</h3>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <lable>Email</lable>
-                    <input type="email" value={user.email} onChange={e => setUser({...user,email: e.target.value})}/>
+                    <label for="email">Email</label>
+                    <input type="email" id = "email" value={user.email}
+                    onChange={e => setUser({...user,email: e.target.value})}/>
                 </div>
                 <div>
-                    <lable>Password</lable>
-                    <input type="password" value={user.password} onChange={e => setUser({...user,email: e.target.value})}/>
+                    <label for="password">Password</label>
+                    <input type="password" id = "password" value={user.password}
+                    onChange={e => setUser({...user,password: e.target.value})}/>
                 </div>
                 <div>
                     <button>{authenticationMode === AuthenticationMode.Login ? 'Login' : 'Submit'}</button>

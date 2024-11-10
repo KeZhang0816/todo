@@ -1,5 +1,6 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
-//import './Home.css';
+import './Home.css';
 import axios from 'axios';
 import Row from '../components/Row'
 import { useUser } from '../context/useUser';
@@ -64,7 +65,7 @@ function Home() {
         {
           tasks.map(item => (
              <li key={item.id}>{item.description}
-               <button className='delete-button' onClick={() => deleteTask(item)}>Delete</button>
+               <button className='delete-button' onClick={() => deleteTask(item.id)}>Delete</button>
              </li>
           ))
         }
